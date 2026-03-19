@@ -1,0 +1,5 @@
+<map id="CameraPipeline_Init" name="CameraPipeline_Init">
+<area shape="rect" id="node1" title="Init the camera and the 2 DCMIPP pipes." alt="" coords="5,31,159,57"/>
+<area shape="rect" id="node2" href="$app__camerapipeline_8c.html#aedc9ebb49775f70f6090d97da59f84bf" title=" " alt="" coords="207,5,385,32"/>
+<area shape="rect" id="node3" href="$app__camerapipeline_8c.html#ae278283c26c312efa04dbdcd26a69664" title=" " alt="" coords="223,56,369,83"/>
+</map>

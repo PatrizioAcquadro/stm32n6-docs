@@ -1,0 +1,33 @@
+<map id="__attribute__" name="__attribute__">
+<area shape="rect" id="node1" title="LCD background framebuffer — camera preview." alt="" coords="5,239,112,266"/>
+<area shape="rect" id="node2" href="$app__camerapipeline_8c.html#af03b9ea321db3555b9f2e88eb472bf2d" title=" " alt="" coords="160,5,369,47"/>
+<area shape="rect" id="node3" href="$app__camerapipeline_8c.html#a2aba01c49b040a1b4d2dbe9d83aeaf0a" title="Init the camera and the 2 DCMIPP pipes." alt="" coords="188,71,341,98"/>
+<area shape="rect" id="node6" href="$app__camerapipeline_8c.html#aa4b66b5c5649fbe4b0cd0804a14f13ea" title=" " alt="" coords="165,122,364,149"/>
+<area shape="rect" id="node7" href="$app__camerapipeline_8c.html#a6604aab86443a19b0ea52e2819196880" title=" " alt="" coords="175,173,355,215"/>
+<area shape="rect" id="node8" href="$main_8c.html#ad3d97f9133c8867eb9ad3084a51c46b1" title="Render inference results on the LCD foreground overlay layer." alt="" coords="176,239,353,266"/>
+<area shape="rect" id="node16" href="$main_8c.html#a1696a94f558858d8375527b1cdad1511" title="Initialize all hardware peripherals required for the application." alt="" coords="208,350,321,377"/>
+<area shape="rect" id="node23" href="$crop__img_8c.html#af3014051229e2ae9f0d4073800b6b93f" title=" " alt="" coords="223,401,306,427"/>
+<area shape="rect" id="node24" href="$main_8c.html#a2364be520d87157dbabbceee436bf5b7" title="Initialize the LCD display with dual&#45;layer configuration." alt="" coords="227,654,303,681"/>
+<area shape="rect" id="node31" href="$main_8c.html#ac1f1cfce64f9317b0379b64c56878950" title="Initialize the Neural Network input/output buffer pointers." alt="" coords="191,705,339,731"/>
+<area shape="rect" id="node4" href="$app__camerapipeline_8c.html#aedc9ebb49775f70f6090d97da59f84bf" title=" " alt="" coords="427,21,605,47"/>
+<area shape="rect" id="node5" href="$app__camerapipeline_8c.html#ae278283c26c312efa04dbdcd26a69664" title=" " alt="" coords="443,71,589,98"/>
+<area shape="rect" id="node9" href="$display__mpe_8c.html#ad1fe7138bda00f1de29e05121ed85cee" title=" " alt="" coords="427,122,605,149"/>
+<area shape="rect" id="node12" href="$display__spe_8c.html#a49c33466ffd28bd79079f74627ae7e07" title=" " alt="" coords="431,173,601,199"/>
+<area shape="rect" id="node15" href="$main_8c.html#a848d8421fb3b66fb8f98c5c33a83748f" title="Display the welcome screen for the first 4 seconds after boot." alt="" coords="425,223,607,250"/>
+<area shape="rect" id="node10" href="$display__mpe_8c.html#a0c3681e4be0208d983ee84706172d7a8" title=" " alt="" coords="667,71,793,98"/>
+<area shape="rect" id="node11" href="$display__mpe_8c.html#af6788281922831b4982dd40ac181c346" title=" " alt="" coords="663,122,797,149"/>
+<area shape="rect" id="node13" href="$display__spe_8c.html#a787aab0ae8f912bd380294e7db222ccf" title=" " alt="" coords="667,173,793,199"/>
+<area shape="rect" id="node14" href="$display__spe_8c.html#a9c802acdd128f147549c3fd6c03fedd9" title=" " alt="" coords="663,223,797,250"/>
+<area shape="rect" id="node17" href="$main_8c.html#a887d55f5fa5284e320ee0efde4b56773" title="Configure the Illegal Access Controller (IAC)." alt="" coords="470,274,562,301"/>
+<area shape="rect" id="node18" href="$main_8c.html#ad288614c598f155c75b84f66ec54cb24" title="Initialize and enable the NPU AXI cache." alt="" coords="448,325,584,351"/>
+<area shape="rect" id="node19" href="$main_8c.html#af97a2122d6e97966d6079ca567e79539" title="Enable the NPU clock and all four NPU SRAM banks." alt="" coords="451,375,581,402"/>
+<area shape="rect" id="node20" href="$main_8c.html#aec4d05c3579cfa27c2368b589115b9fe" title="Configure TrustZone security attributes for hardware peripherals." alt="" coords="455,426,577,453"/>
+<area shape="rect" id="node21" href="$main_8c.html#a49b44219d58f7d21e7e71a4d2ef80323" title="Configure peripheral clocks to remain active during CPU sleep." alt="" coords="439,477,593,503"/>
+<area shape="rect" id="node22" href="$main_8c.html#ad554cbf06ce0fa6f92a0c4152b8a4c64" title="Configure the system clock tree using four PLLs." alt="" coords="439,527,593,554"/>
+<area shape="rect" id="node25" href="$main_8c.html#a4f87d4368bb5a302894eaaf57211b5b9" title="Clamp a point to the LCD background area boundaries." alt="" coords="679,654,781,681"/>
+<area shape="rect" id="node26" href="$main_8c.html#a07fb501dfddc6efffc69a2097633c5a9" title="Convert normalized [0,1] dimensions to LCD pixel dimensions." alt="" coords="457,629,575,655"/>
+<area shape="rect" id="node27" href="$main_8c.html#a3eec05468c9b3239dd9a2a3d0a662989" title="Convert normalized [0,1] coordinates to LCD pixel coordinates." alt="" coords="461,679,571,706"/>
+<area shape="rect" id="node28" href="$main_8c.html#a208e4f5220b9e5a2167264f042399457" title="Draw a skeleton connection line between two keypoints on the LCD." alt="" coords="437,730,595,757"/>
+<area shape="rect" id="node29" href="$display__mpe_8c.html#ada7df60aafb7c69c4d21d4432de36077" title=" " alt="" coords="417,781,615,807"/>
+<area shape="rect" id="node30" href="$display__spe_8c.html#a3ed08537d23a3bd4f4cc83b7c5da5529" title=" " alt="" coords="421,831,611,858"/>
+</map>
