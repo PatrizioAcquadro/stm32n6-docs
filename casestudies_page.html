@@ -190,7 +190,7 @@ $(document).ready(function(){initNavTree('casestudies_page.html',''); initResiza
     </div>
     <div style="font-size:0.82em;color:#4a5568;line-height:1.8;">
       <strong>Total:</strong> 75 epochs<br/>
-      <strong>SW epoch 59, 63, 67:</strong> Resize bilinear<br/>
+      <strong>SW epochs 59, 63, 67:</strong> Resize bilinear<br/>
       <strong>SW epoch 74:</strong> DequantizeLinear<br/>
       <span style="color:#718096;">All 4 SW in decoder — backbone 100% NPU</span>
     </div>
@@ -535,7 +535,7 @@ $(document).ready(function(){initNavTree('casestudies_page.html',''); initResiza
             border-left:4px solid #e94560;margin-bottom:36px;font-size:0.9em;
             line-height:1.7;">
   <strong style="color:#fc8181;">Why 64.4% and not 87.9%:</strong>
-  this is a structural incompatibility, not a tuning gap.
+  This is a structural incompatibility, not a tuning gap.
   LayerNormalization requires computing the mean and variance of a sequence,
   then applying a learned scale and shift. This involves Dequantize → Reciprocal
   → Mul → Sub — a chain of 6 SW epochs per layer, repeated 4 times.
