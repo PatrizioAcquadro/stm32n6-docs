@@ -287,7 +287,7 @@ $(document).ready(function(){initNavTree('casestudies_page.html',''); initResiza
   Ultralytics — it detects all people in the frame simultaneously and outputs
   bounding boxes with 17 COCO keypoints per person.
   Unlike MoveNet, it has two distinct parts: a <strong>CNN backbone</strong>
-  (CSPDarknet + FPN) that runs almost entirely on the NPU, and a
+  (CSPDarknet + PAN-FPN) that runs almost entirely on the NPU, and a
   <strong>detection head</strong> that includes reshape, transpose, softmax,
   and NMS operations — many of which are not supported by the NPU.
 </p>
@@ -438,6 +438,15 @@ $(document).ready(function(){initNavTree('casestudies_page.html',''); initResiza
   <span style="color:#fc8181;"># mean subtraction of LayerNorm</span>
 </div>
 
+<p style="color:#718096;font-size:0.82em;line-height:1.7;margin:-8px 0 20px 0;
+          font-style:italic;">
+  Epochs are listed in compiler-emission order, which does not match the
+  mathematical LayerNorm formula <code>y&nbsp;=&nbsp;&gamma;&middot;(x&minus;&mu;)/&sigma;&nbsp;+&nbsp;&beta;</code>:
+  kernel fusion and quantization boundaries reorder the primitive ops
+  (<code>Sub</code>, <code>Mul</code>, <code>Reciprocal</code>) so the sequence emitted to
+  the NPU scheduler no longer mirrors the formula.
+</p>
+
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
   <div style="background:#f8f9fa;border:1px solid #e2e8f0;border-top:3px solid #e94560;
               border-radius:8px;padding:16px;">
@@ -525,7 +534,8 @@ $(document).ready(function(){initNavTree('casestudies_page.html',''); initResiza
 <div style="background:#1a1a2e;color:#e2e8f0;padding:16px 20px;border-radius:8px;
             border-left:4px solid #e94560;margin-bottom:36px;font-size:0.9em;
             line-height:1.7;">
-  <strong style="color:#fc8181;">Why 64.4% — the structural incompatibility:</strong>
+  <strong style="color:#fc8181;">Why 64.4% and not 87.9%:</strong>
+  this is a structural incompatibility, not a tuning gap.
   LayerNormalization requires computing the mean and variance of a sequence,
   then applying a learned scale and shift. This involves Dequantize → Reciprocal
   → Mul → Sub — a chain of 6 SW epochs per layer, repeated 4 times.
