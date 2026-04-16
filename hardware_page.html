@@ -405,7 +405,7 @@ $(document).ready(function(){initNavTree('hardware_page.html',''); initResizable
       MIPI CSI-2 is a serial differential protocol that transmits pixel data
       at very high bandwidth with very few wires. Once the data arrives at the
       MCU, it is processed by the <strong>DCMIPP</strong> — a dedicated hardware
-      block described in Section 2.5 — which handles format conversion,
+      block described in Section 2.6 — which handles format conversion,
       cropping, and routing to memory without CPU involvement.
     </p>
     <div style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:8px;
@@ -567,7 +567,7 @@ $(document).ready(function(){initNavTree('hardware_page.html',''); initResizable
       Not a GPU. Not a general-purpose accelerator.
       A fixed-function hardware block designed specifically for CNN inference —
       with dedicated units for convolution, pooling, and activation.
-      We will dissect it in detail in Section 2.4.
+      We will dissect it in detail in Section 2.5.
     </p>
   </div>
   <div style="background:#f0fff4;border:1px solid #38a169;border-top:3px solid #38a169;
@@ -1014,7 +1014,7 @@ $(document).ready(function(){initNavTree('hardware_page.html',''); initResizable
 </div>
 
 <p style="color:#4a5568;font-size:0.93em;line-height:1.9;margin-bottom:16px;">
-  The <strong>DCMIPP</strong> (Digital Camera Memory Interface and Processing Pipeline)
+  The <strong>DCMIPP</strong> (Digital Camera Memory Interface Pixel Pipeline)
   is a dedicated hardware block that sits between the MIPI CSI-2 camera interface
   and the MCU's memory. Its key feature for our project is the ability to run
   <strong>two simultaneous output pipes</strong> from a single camera input.
