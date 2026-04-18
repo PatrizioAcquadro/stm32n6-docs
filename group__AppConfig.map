@@ -1,5 +1,0 @@
-<map id="Application Configuration" name="Application Configuration">
-<area shape="rect" id="node1" title="Central configuration macros for the STM32N6570&#45;DK pose estimation firmware." alt="" coords="5,42,192,67"/>
-<area shape="rect" id="node2" href="$group__AspectRatioModes.html" title="Defines how the camera image is resized/cropped to match the NN input." alt="" coords="247,5,413,45"/>
-<area shape="rect" id="node3" href="$group__ColorModes.html" title=" " alt="" coords="240,70,420,95"/>
-</map>

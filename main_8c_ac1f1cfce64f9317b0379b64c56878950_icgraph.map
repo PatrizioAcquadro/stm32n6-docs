@@ -1,4 +1,0 @@
-<map id="NeuralNetwork_init" name="NeuralNetwork_init">
-<area shape="rect" id="node1" title="Initialize the Neural Network input/output buffer pointers." alt="" coords="160,5,308,32"/>
-<area shape="rect" id="node2" href="$main_8c.html#a69d29ef3499c0b385325c4225e6085a5" title="LCD background framebuffer — camera preview." alt="" coords="5,5,112,32"/>
-</map>

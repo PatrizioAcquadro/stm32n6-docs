@@ -1,6 +1,0 @@
-<map id="Display_binding" name="Display_binding">
-<area shape="rect" id="node1" title=" " alt="" coords="604,5,731,32"/>
-<area shape="rect" id="node2" href="$display__spe_8c.html#a49c33466ffd28bd79079f74627ae7e07" title=" " alt="" coords="385,5,556,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#ad3d97f9133c8867eb9ad3084a51c46b1" title="Render inference results on the LCD foreground overlay layer." alt="" coords="160,5,337,32"/>
-<area shape="rect" id="node4" href="$main_8c.html#a69d29ef3499c0b385325c4225e6085a5" title="LCD background framebuffer — camera preview." alt="" coords="5,5,112,32"/>
-</map>

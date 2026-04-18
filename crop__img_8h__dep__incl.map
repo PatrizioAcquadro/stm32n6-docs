@@ -1,6 +1,0 @@
-<map id="crop_img.h" name="crop_img.h">
-<area shape="rect" id="node1" title=" " alt="" coords="194,5,289,32"/>
-<area shape="rect" id="node2" href="$app__camerapipeline_8c.html" title=" " alt="" coords="5,80,171,107"/>
-<area shape="rect" id="node3" href="$crop__img_8c.html" title=" " alt="" coords="195,80,288,107"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Main firmware entry point for the STM32N6570&#45;DK pose estimation application running on the Neural&#45;ART..." alt="" coords="312,80,379,107"/>
-</map>

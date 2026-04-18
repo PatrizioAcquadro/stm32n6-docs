@@ -1,4 +1,0 @@
-<map id="Aspect Ratio Handling Modes" name="Aspect Ratio Handling Modes">
-<area shape="rect" id="node1" href="$group__AppConfig.html" title="Central configuration macros for the STM32N6570&#45;DK pose estimation firmware." alt="" coords="5,13,192,38"/>
-<area shape="rect" id="node2" title="Defines how the camera image is resized/cropped to match the NN input." alt="" coords="240,5,407,45"/>
-</map>

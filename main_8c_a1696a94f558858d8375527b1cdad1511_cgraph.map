@@ -1,9 +1,0 @@
-<map id="Hardware_init" name="Hardware_init">
-<area shape="rect" id="node1" title="Initialize all hardware peripherals required for the application." alt="" coords="5,132,119,159"/>
-<area shape="rect" id="node2" href="$main_8c.html#a887d55f5fa5284e320ee0efde4b56773" title="Configure the Illegal Access Controller (IAC)." alt="" coords="198,5,290,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#ad288614c598f155c75b84f66ec54cb24" title="Initialize and enable the NPU AXI cache." alt="" coords="176,56,312,83"/>
-<area shape="rect" id="node4" href="$main_8c.html#af97a2122d6e97966d6079ca567e79539" title="Enable the NPU clock and all four NPU SRAM banks." alt="" coords="179,107,309,133"/>
-<area shape="rect" id="node5" href="$main_8c.html#aec4d05c3579cfa27c2368b589115b9fe" title="Configure TrustZone security attributes for hardware peripherals." alt="" coords="183,157,305,184"/>
-<area shape="rect" id="node6" href="$main_8c.html#a49b44219d58f7d21e7e71a4d2ef80323" title="Configure peripheral clocks to remain active during CPU sleep." alt="" coords="167,208,321,235"/>
-<area shape="rect" id="node7" href="$main_8c.html#ad554cbf06ce0fa6f92a0c4152b8a4c64" title="Configure the system clock tree using four PLLs." alt="" coords="167,259,321,285"/>
-</map>

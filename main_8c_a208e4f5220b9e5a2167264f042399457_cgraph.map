@@ -1,4 +1,0 @@
-<map id="Display_binding_line" name="Display_binding_line">
-<area shape="rect" id="node1" title="Draw a skeleton connection line between two keypoints on the LCD." alt="" coords="5,5,163,32"/>
-<area shape="rect" id="node2" href="$main_8c.html#a4f87d4368bb5a302894eaaf57211b5b9" title="Clamp a point to the LCD background area boundaries." alt="" coords="211,5,313,32"/>
-</map>
