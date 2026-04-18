@@ -538,7 +538,7 @@ $(document).ready(function(){initNavTree('hardware_page.html',''); initResizable
   </text>
 
   <!-- AXI bus -->
-  <rect x="20" y="228" width="640" height="18" rx="4"
+  <rect x="36" y="228" width="600" height="18" rx="4"
         fill="#2d2d2d" stroke="#718096" stroke-width="0.5"/>
   <text x="340" y="240" text-anchor="middle" font-size="8"
         fill="#cbd5e0" font-family="sans-serif" letter-spacing="2">
@@ -689,10 +689,16 @@ $(document).ready(function(){initNavTree('hardware_page.html',''); initResizable
   <text x="560" y="136" text-anchor="middle" font-size="7"
         fill="#065f46" font-family="sans-serif">critical code</text>
 
-  <!-- arrow down -->
-  <line x1="340" y1="154" x2="340" y2="168" stroke="#94a3b8"
+  <!-- arrow down - branches to both external memories -->
+  <line x1="340" y1="154" x2="340" y2="162" stroke="#94a3b8"
+        stroke-width="1"/>
+  <line x1="195" y1="162" x2="485" y2="162" stroke="#94a3b8"
+        stroke-width="1"/>
+  <line x1="195" y1="162" x2="195" y2="168" stroke="#94a3b8"
         stroke-width="1" marker-end="url(#arr)"/>
-  <text x="360" y="164" font-size="8" fill="#94a3b8"
+  <line x1="485" y1="162" x2="485" y2="168" stroke="#94a3b8"
+        stroke-width="1" marker-end="url(#arr)"/>
+  <text x="346" y="160" font-size="8" fill="#94a3b8"
         font-family="sans-serif">miss</text>
 
   <!-- LEVEL 3: External memories -->
@@ -951,17 +957,19 @@ $(document).ready(function(){initNavTree('hardware_page.html',''); initResizable
   <text x="554" y="228" text-anchor="middle" font-size="7"
         fill="#ef4444" font-family="sans-serif">Transformer ops &#8594; SW epoch</text>
 
-  <!-- Data flow arrow -->
+  <!-- Data flow box -->
+  <rect x="40" y="246" width="600" height="62" rx="8"
+        fill="#0d0d1a" stroke="#4a5568" stroke-width="0.8"/>
   <text x="340" y="264" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#a0aec0" font-family="sans-serif">
+        font-weight="600" fill="#cbd5e0" font-family="sans-serif">
     Data flow during inference:
   </text>
-  <text x="340" y="280" text-anchor="middle" font-size="8"
-        fill="#718096" font-family="sans-serif">
+  <text x="340" y="282" text-anchor="middle" font-size="8"
+        fill="#a0aec0" font-family="sans-serif">
     OctoFlash (weights) &#8594; AXI Cache &#8594; STRENG &#8594; CONVACC &#8594; npuRAM (activations) &#8594; repeat
   </text>
-  <text x="340" y="296" text-anchor="middle" font-size="8"
-        fill="#718096" font-family="sans-serif">
+  <text x="340" y="298" text-anchor="middle" font-size="8"
+        fill="#a0aec0" font-family="sans-serif">
     nn_in (npuRAM4) &#8594; Layer 0 &#8594; intermediate activations &#8594; nn_out (npuRAM5)
   </text>
 </svg>

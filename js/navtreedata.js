@@ -29,7 +29,7 @@ var NAVTREE =
     [ "Part 1 — Narrative Explanations", "part1_page.html", "part1_page" ],
     [ "Part 2 — Code Reference", "part2_page.html", null ],
     [ "Part 3 — Module Groups", "part3_page.html", null ],
-    [ "Module Groups", "modules.html", "modules" ],
+    [ "List of Modules", "modules.html", "modules" ],
     [ "Python Modules", "namespaces.html", null ],
     [ "Source Files", "files.html", null ]
   ] ]
