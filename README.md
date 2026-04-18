@@ -76,15 +76,13 @@ Doxygen outputs everything flat by default (hundreds of files in root). We post-
 
 ## Regenerating the Docs
 
-Doxygen overwrites its output directory on every run, so the reorganisation would be lost without a post-processing step. Run:
+The Doxyfile used to build this site lives outside the repo (held by the maintainers alongside the original Doxygen source tree). To regenerate:
 
-```bash
-doxygen Doxyfile          # regenerate flat output in repo root
-python3 tools/reorg.py    # re-apply the subfolder layout + path rewrites
-git add -A && git commit -m "regen docs"
-```
+1. Run Doxygen against the private source tree so its flat output lands in a fresh copy of this repo root.
+2. Run `python3 tools/reorg.py` from the repo root — it moves the output into the tidy `css/`, `js/`, `images/*/`, `graphs/` subfolders and rewrites the generated path references in place.
+3. `git add -A && git commit` the diff.
 
-`tools/reorg.py` is idempotent — safe to run more than once. If you add new non-Doxygen images (e.g. more board photos, authors), extend the hard-coded sets at the top of that script.
+`tools/reorg.py` is idempotent — safe to re-run. If new non-Doxygen assets are introduced (additional board or author photos), extend the hard-coded sets at the top of the script.
 
 ---
 
