@@ -1,0 +1,9 @@
+<map id="LCD_init" name="LCD_init">
+<area shape="rect" id="node1" title="Initialize the LCD display with dual&#45;layer configuration." alt="" coords="5,116,81,143"/>
+<area shape="rect" id="node2" href="$main_8c.html#a4f87d4368bb5a302894eaaf57211b5b9" title="Clamp a point to the LCD background area boundaries." alt="" coords="375,65,477,92"/>
+<area shape="rect" id="node3" href="$main_8c.html#a07fb501dfddc6efffc69a2097633c5a9" title="Convert normalized [0,1] dimensions to LCD pixel dimensions." alt="" coords="169,40,287,67"/>
+<area shape="rect" id="node4" href="$main_8c.html#a3eec05468c9b3239dd9a2a3d0a662989" title="Convert normalized [0,1] coordinates to LCD pixel coordinates." alt="" coords="173,91,283,117"/>
+<area shape="rect" id="node5" href="$main_8c.html#a208e4f5220b9e5a2167264f042399457" title="Draw a skeleton connection line between two keypoints on the LCD." alt="" coords="149,141,307,168"/>
+<area shape="rect" id="node6" href="$display__mpe_8c.html#ada7df60aafb7c69c4d21d4432de36077" title=" " alt="" coords="129,192,327,219"/>
+<area shape="rect" id="node7" href="$display__spe_8c.html#a3ed08537d23a3bd4f4cc83b7c5da5529" title=" " alt="" coords="133,243,323,269"/>
+</map>

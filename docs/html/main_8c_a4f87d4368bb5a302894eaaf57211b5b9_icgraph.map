@@ -1,0 +1,6 @@
+<map id="clamp_point" name="clamp_point">
+<area shape="rect" id="node1" title="Clamp a point to the LCD background area boundaries." alt="" coords="489,31,592,57"/>
+<area shape="rect" id="node2" href="$main_8c.html#a208e4f5220b9e5a2167264f042399457" title="Draw a skeleton connection line between two keypoints on the LCD." alt="" coords="284,5,441,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a2364be520d87157dbabbceee436bf5b7" title="Initialize the LCD display with dual&#45;layer configuration." alt="" coords="160,31,236,57"/>
+<area shape="rect" id="node4" href="$main_8c.html#a69d29ef3499c0b385325c4225e6085a5" title="LCD background framebuffer — camera preview." alt="" coords="5,31,112,57"/>
+</map>
