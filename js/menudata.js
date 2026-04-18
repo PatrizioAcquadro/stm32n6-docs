@@ -26,7 +26,5 @@ var menudata={children:[
 {text:"Homepage",url:"index.html"},
 {text:"Documentation",url:"pages.html"},
 {text:"Module Groups",url:"modules.html"},
-{text:"Python Modules",url:"namespaces.html",children:[
-{text:"List",url:"namespaces.html"}]},
-{text:"Source Files",url:"files.html",children:[
-{text:"File List",url:"files.html"}]}]}
+{text:"Python Modules",url:"namespaces.html"},
+{text:"Source Files",url:"files.html"}]}

@@ -840,6 +840,8 @@ div.directory {
         white-space: nowrap;
         padding-right: 6px;
 	padding-top: 3px;
+	padding-bottom: 3px;
+	line-height: 19px;
 }
 
 .directory td.entry a {
@@ -855,6 +857,8 @@ div.directory {
         padding-left: 6px;
 	padding-right: 6px;
 	padding-top: 3px;
+	padding-bottom: 3px;
+	line-height: 19px;
 	border-left: 1px solid rgba(0,0,0,0.05);
 }
 
@@ -892,7 +896,8 @@ div.directory {
     font-size: 80%;
     display: inline-block;
     width: 16px;
-    height: 22px;
+    height: 19px;
+    vertical-align: middle;
 }
 
 .icon {

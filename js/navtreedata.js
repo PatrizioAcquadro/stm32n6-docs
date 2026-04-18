@@ -30,12 +30,8 @@ var NAVTREE =
     [ "Part 2 — Code Reference", "part2_page.html", null ],
     [ "Part 3 — Module Groups", "part3_page.html", null ],
     [ "Module Groups", "modules.html", "modules" ],
-    [ "Python Modules", "namespaces.html", [
-      [ "List", "namespaces.html", "namespaces_dup" ]
-    ] ],
-    [ "Source Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
-    ] ]
+    [ "Python Modules", "namespaces.html", null ],
+    [ "Source Files", "files.html", null ]
   ] ]
 ];
 
