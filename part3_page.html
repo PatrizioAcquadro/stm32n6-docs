@@ -101,9 +101,8 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
     Code Organised by Layer
   </h1>
   <p style="color:#a0aec0;font-size:1em;margin:0 0 24px 0;max-width:640px;line-height:1.7;">
-    Instead of browsing by filename or execution order, Part 3 groups every file
-    by its architectural layer — all firmware together, all Python pipeline together.
-    Use this when you want to understand a complete layer in isolation.
+    Part 3 categorizes the project files by their architectural domain. 
+    Rather than tracing the execution flow, this view separates the host-side Python orchestration from the target-side C firmware, allowing you to examine the responsibilities of each subsystem independently.
   </p>
   <div style="display:flex;gap:10px;flex-wrap:wrap;">
     <div style="background:rgba(233,69,96,0.2);border:1px solid #e94560;
@@ -130,20 +129,18 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
     <div>
       <div style="font-weight:700;color:#2b6cb0;margin-bottom:8px;">
-        &#128337; Part 2 — Execution timeline
+        &#128337; Part 2 — Execution Flow
       </div>
       <p style="color:#4a5568;font-size:0.88em;line-height:1.6;margin:0;">
-        Shows files in the order they execute: what calls what, when, and why.
-        Use Part 2 when you want to follow the pipeline step by step.
+        Maps the sequence of operations across the deployment pipeline. Use this to trace the call graph and understand the step-by-step lifecycle of the process.
       </p>
     </div>
     <div>
       <div style="font-weight:700;color:#d69e2e;margin-bottom:8px;">
-        &#127963; Part 3 — Architectural layers
+        &#127963; Part 3 — Architectural Layers
       </div>
       <p style="color:#4a5568;font-size:0.88em;line-height:1.6;margin:0;">
-        Shows files grouped by where they run: board vs laptop.
-        Use Part 3 when you want to understand a complete layer in isolation.
+        Groups components by their deployment target (Host PC vs. STM32 target). Use this to study the isolated subsystems and understand the distinct scope of each environment.
       </p>
     </div>
   </div>
@@ -158,103 +155,74 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
   Two layers — one project
 </h2>
 
-<div style="margin:0 0 32px 0;">
-<svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+
+<div style="margin:0 0 32px 0; overflow-x: auto;">
+<svg width="100%" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg" style="font-family: system-ui, -apple-system, sans-serif; min-width: 680px;">
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5"
-            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
-            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 1L8 5L0 9" fill="#16a34a"/>
     </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.05"/>
+    </filter>
   </defs>
 
-  <!-- Python layer box -->
-  <rect x="20" y="20" width="290" height="160" rx="12"
-        fill="#ebf8ff" stroke="#4299e1" stroke-width="1.5" stroke-dasharray="6 3"/>
-  <text x="165" y="46" text-anchor="middle" font-size="11"
-        font-weight="700" fill="#2b6cb0" font-family="sans-serif"
-        letter-spacing="1">PYTHON PIPELINE — Host PC</text>
+  <rect x="20" y="20" width="320" height="220" rx="12" fill="#f0f9ff" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="20" y="20" width="320" height="40" rx="12" fill="#e0f2fe" style="clip-path: inset(0px 0px 20px 0px);"/>
+  <text x="180" y="45" text-anchor="middle" font-size="13" font-weight="800" fill="#1e3a8a" letter-spacing="1.5">PYTHON PIPELINE &mdash; Host PC</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="40" y="80" width="130" height="45" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+    <text x="105" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">deployment/</text>
+    <text x="105" y="116" text-anchor="middle" font-size="9" fill="#0284c7">+ utils/</text>
 
-  <rect x="36"  y="58" width="120" height="32" rx="6"
-        fill="#bee3f8" stroke="#4299e1" stroke-width="0.8"/>
-  <text x="96" y="78" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#2b6cb0" font-family="sans-serif">
-    deployment/ + utils/
-  </text>
+    <rect x="190" y="80" width="130" height="45" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+    <text x="255" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">quantization/</text>
 
-  <rect x="168" y="58" width="120" height="32" rx="6"
-        fill="#bee3f8" stroke="#4299e1" stroke-width="0.8"/>
-  <text x="228" y="78" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#2b6cb0" font-family="sans-serif">
-    quantization/
-  </text>
+    <rect x="40" y="140" width="130" height="45" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+    <text x="105" y="158" text-anchor="middle" font-size="10" font-weight="700" fill="#0369a1">preprocessing/</text>
+    <text x="105" y="172" text-anchor="middle" font-size="9" fill="#0284c7">+ postprocessing/</text>
 
-  <rect x="36"  y="102" width="120" height="32" rx="6"
-        fill="#bee3f8" stroke="#4299e1" stroke-width="0.8"/>
-  <text x="96" y="122" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#2b6cb0" font-family="sans-serif">
-    preprocessing/ + postprocessing/
-  </text>
+    <rect x="190" y="140" width="130" height="45" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+    <text x="255" y="167" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">evaluation/</text>
+  </g>
 
-  <rect x="168" y="102" width="120" height="32" rx="6"
-        fill="#bee3f8" stroke="#4299e1" stroke-width="0.8"/>
-  <text x="228" y="122" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#2b6cb0" font-family="sans-serif">
-    evaluation/
-  </text>
+  <text x="180" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#3b82f6">13 Python files</text>
 
-  <text x="165" y="170" text-anchor="middle" font-size="9"
-        fill="#4299e1" font-family="sans-serif">
-    13 Python files — output: .tflite + app_config.h + .bin
-  </text>
+  <path d="M 340 130 L 450 130" stroke="#16a34a" stroke-width="3" fill="none" marker-end="url(#arrow-green)"/>
+  
+  <rect x="355" y="90" width="80" height="20" rx="4" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+  <text x="395" y="104" text-anchor="middle" font-size="9" font-weight="700" fill="#a16207">app_config.h</text>
+  
+  <rect x="365" y="145" width="60" height="20" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="395" y="159" text-anchor="middle" font-size="9" font-weight="700" fill="#475569">model.bin</text>
 
-  <!-- Arrow between layers -->
-  <line x1="310" y1="100" x2="370" y2="100" stroke="#38a169"
-        stroke-width="2" marker-end="url(#arr)"/>
-  <text x="340" y="92" text-anchor="middle" font-size="9"
-        font-weight="700" fill="#276749" font-family="sans-serif">flash</text>
-  <text x="340" y="116" text-anchor="middle" font-size="8"
-        fill="#718096" font-family="sans-serif">ST-Link</text>
+  <text x="395" y="185" text-anchor="middle" font-size="10" font-weight="700" fill="#15803d">flash via ST-Link</text>
 
-  <!-- C layer box -->
-  <rect x="370" y="20" width="290" height="160" rx="12"
-        fill="#fff5f5" stroke="#e94560" stroke-width="1.5" stroke-dasharray="6 3"/>
-  <text x="515" y="46" text-anchor="middle" font-size="11"
-        font-weight="700" fill="#c53030" font-family="sans-serif"
-        letter-spacing="1">C FIRMWARE — STM32N6570-DK</text>
+  <rect x="460" y="20" width="320" height="220" rx="12" fill="#fff1f2" stroke="#e11d48" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="460" y="20" width="320" height="40" rx="12" fill="#ffe4e6" style="clip-path: inset(0px 0px 20px 0px);"/>
+  <text x="620" y="45" text-anchor="middle" font-size="13" font-weight="800" fill="#881337" letter-spacing="1.5">C FIRMWARE &mdash; STM32N6570-DK</text>
 
-  <rect x="386" y="58" width="120" height="32" rx="6"
-        fill="#fed7e2" stroke="#e94560" stroke-width="0.8"/>
-  <text x="446" y="74" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#c53030" font-family="sans-serif">main.c</text>
-  <text x="446" y="84" text-anchor="middle" font-size="8"
-        fill="#e94560" font-family="sans-serif">app_config.h</text>
+  <g filter="url(#shadow)">
+    <rect x="480" y="80" width="130" height="45" rx="6" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="545" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#be123c">main.c</text>
+    <text x="545" y="116" text-anchor="middle" font-size="9" fill="#e11d48">app_config.h inclusion</text>
 
-  <rect x="518" y="58" width="120" height="32" rx="6"
-        fill="#fed7e2" stroke="#e94560" stroke-width="0.8"/>
-  <text x="578" y="74" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#c53030" font-family="sans-serif">app_camerapipeline</text>
-  <text x="578" y="84" text-anchor="middle" font-size="8"
-        fill="#e94560" font-family="sans-serif">DCMIPP dual-pipe</text>
+    <rect x="630" y="80" width="130" height="45" rx="6" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="695" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#be123c">app_camerapipeline</text>
+    <text x="695" y="116" text-anchor="middle" font-size="9" fill="#e11d48">DCMIPP dual-pipe</text>
 
-  <rect x="386" y="102" width="120" height="32" rx="6"
-        fill="#fed7e2" stroke="#e94560" stroke-width="0.8"/>
-  <text x="446" y="118" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#c53030" font-family="sans-serif">display_spe / display_mpe</text>
-  <text x="446" y="128" text-anchor="middle" font-size="8"
-        fill="#e94560" font-family="sans-serif">postprocessor + LCD</text>
+    <rect x="480" y="140" width="130" height="45" rx="6" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="545" y="158" text-anchor="middle" font-size="10" font-weight="700" fill="#be123c">display_spe / _mpe</text>
+    <text x="545" y="172" text-anchor="middle" font-size="9" fill="#e11d48">postprocessor + LCD</text>
 
-  <rect x="518" y="102" width="120" height="32" rx="6"
-        fill="#fed7e2" stroke="#e94560" stroke-width="0.8"/>
-  <text x="578" y="118" text-anchor="middle" font-size="9"
-        font-weight="600" fill="#c53030" font-family="sans-serif">crop_img</text>
-  <text x="578" y="128" text-anchor="middle" font-size="8"
-        fill="#e94560" font-family="sans-serif">keypoints_13/17.h</text>
+    <rect x="630" y="140" width="130" height="45" rx="6" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="695" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="#be123c">crop_img</text>
+    <text x="695" y="172" text-anchor="middle" font-size="9" fill="#e11d48">keypoints_13/17.h</text>
+  </g>
 
-  <text x="515" y="170" text-anchor="middle" font-size="9"
-        fill="#e94560" font-family="sans-serif">
-    10 C/H files — runs at 22–32 ms inference
-  </text>
+  <text x="620" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#e11d48">10 C/H files &mdash; runs at 22–32 ms inference</text>
+
 </svg>
 </div>
 
@@ -286,11 +254,10 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
 </div>
 
 <p style="color:#4a5568;font-size:0.93em;line-height:1.9;margin-bottom:20px;">
-  This group contains all C and header files that are compiled into the firmware
-  and flashed onto the STM32N6570-DK board. They implement the complete real-time
-  application: camera acquisition, NPU inference trigger, postprocessing, and display.
-  All files in this group run on the <strong>Cortex-M55 CPU at 800 MHz</strong>
-  and interact with the Neural-ART NPU via the <code>ll_aton</code> runtime.
+This module contains the C source and header files compiled into the target firmware flashed to the STM32N6570-DK. 
+Executing entirely on the Cortex-M55 CPU (800 MHz), this stack orchestrates the end-to-end real-time application: 
+managing MIPI CSI-2 camera acquisition, triggering the Neural-ART NPU via the <code>ll_aton</code> runtime, decoding the neural network outputs, and driving the LCD display.
+
 </p>
 
 <!-- Firmware file cards -->
@@ -307,11 +274,9 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                 text-decoration:none;font-size:0.78em;font-weight:700;">View &rarr;</a>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">Role:</strong> Generated by
-      <code>gen_h_file.py</code> — the only generated file included by
-      handwritten C. Defines NN dimensions, keypoint count, postprocess type,
-      and confidence threshold. Change the model → regenerate this file →
-      recompile. All other files read from it.
+  
+      Generated automatically by the Python pipeline (<code>gen_h_file.py</code>), this is the critical configuration bridge between the host and target. 
+      It defines network dimensions, keypoint counts, post-processing modes, and confidence thresholds. If the model changes, this file is regenerated to automatically update the C logic.
     </div>
     <div style="margin-top:8px;">
       <span style="background:#fef3c7;color:#92400e;font-size:0.75em;
@@ -320,7 +285,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
       </span>
       <span style="background:#e2e8f0;color:#4a5568;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;margin-left:4px;">
-        #include by all
+        #Global Include
       </span>
     </div>
   </div>
@@ -336,19 +301,17 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                 text-decoration:none;font-size:0.78em;font-weight:700;">View &rarr;</a>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">Role:</strong> Entry point after reset.
-      HAL + clock + peripheral init. Starts DCMIPP. Runs the infinite inference
-      loop: snapshot trigger → <code>LL_ATON_RT_Main()</code> → postprocess →
-      render. The top of the C call graph.
+      The top of the C call graph. It handles the Hardware Abstraction Layer (HAL), clock and peripheral initialization before starting the camera interface. 
+      It hosts the primary infinite loop: triggering a camera snapshot, executing the NPU via <code>LL_ATON_RT_Main()</code>, and dispatching the appropriate post-processing and rendering routines.
     </div>
     <div style="margin-top:8px;">
       <span style="background:#fed7e2;color:#c53030;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;">
-        Entry point
+        Entry Point
       </span>
       <span style="background:#e2e8f0;color:#4a5568;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;margin-left:4px;">
-        Inference loop
+        Inference Loop
       </span>
     </div>
   </div>
@@ -371,19 +334,18 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
       </div>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">Role:</strong> MIPI CSI-2 + DCMIPP
-      configuration. Dual-pipe: display pipe writes to PSRAM continuously
-      (LCD background), NN pipe delivers a cropped snapshot to npuRAM4
-      on demand. Zero CPU for memory transfers.
+      Configures the MIPI CSI-2 interface and the DCMIPP peripheral. 
+      It implements a zero-CPU-overhead DMA architecture utilizing two independent pipes: 
+      a display pipe continuously streams background frames directly to PSRAM for the LCD, while the NN pipe routes cropped snapshots to npuRAM4 strictly on demand.
     </div>
     <div style="margin-top:8px;">
       <span style="background:#e9d8fd;color:#553c9a;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;">
-        DCMIPP dual-pipe
+        DCMIPP Dual-Pipe
       </span>
       <span style="background:#e2e8f0;color:#4a5568;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;margin-left:4px;">
-        DMA-driven
+        DMA-Driven
       </span>
     </div>
   </div>
@@ -406,20 +368,17 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
       </div>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">Role:</strong> MoveNet postprocessor.
-      Reads float32 heatmaps (48×48×13) from npuRAM5, finds argmax per channel,
-      filters by <code>AI_POSE_PP_CONF_THRESHOLD</code>, draws 13-keypoint
-      skeleton on the LCD foreground layer using
-      <code>display_keypoints_13.h</code> connectivity table.
+      The dedicated MoveNet post-processor. 
+      It reads float32 heatmaps (48×48×13) generated by the NPU in npuRAM5, computes the argmax per channel, applies the confidence threshold, and renders the 13-keypoint skeleton to the LCD foreground.
     </div>
     <div style="margin-top:8px;">
       <span style="background:#bee3f8;color:#2b6cb0;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;">
-        MoveNet decoder
+        MoveNet Decoder
       </span>
       <span style="background:#e2e8f0;color:#4a5568;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;margin-left:4px;">
-        LCD render
+        LCD Render
       </span>
     </div>
   </div>
@@ -442,19 +401,17 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
       </div>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">Role:</strong> YOLOv8n-pose postprocessor.
-      Reads detection output (bounding boxes + 17 keypoints per person),
-      applies NMS filtering, draws bounding boxes and 17-keypoint COCO
-      skeletons for all detected persons simultaneously.
+      The dedicated YOLOv8n-pose post-processor. 
+      It parses the dense detection outputs (bounding boxes plus 17 keypoints per person), applies Non-Maximum Suppression (NMS) filtering and simultaneously renders bounding boxes and full COCO-standard skeletons for all detected individuals.
     </div>
     <div style="margin-top:8px;">
       <span style="background:#c6f6d5;color:#276749;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;">
-        YOLOv8 decoder
+        YOLOv8 Decoder
       </span>
       <span style="background:#e2e8f0;color:#4a5568;font-size:0.75em;
                    padding:2px 7px;border-radius:4px;font-weight:600;margin-left:4px;">
-        Multi-person
+        Multi-Person
       </span>
     </div>
   </div>
@@ -477,9 +434,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
       </div>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">Role:</strong> Image crop utilities
-      used by the NN pipe to extract and resize the region of interest from
-      the full camera frame before feeding it to the NPU input buffer.
+        Image cropping and resizing utilities utilized by the neural network pipeline to extract the precise Region of Interest (ROI) from the full camera frame before loading it into the NPU input buffers.
     </div>
   </div>
 
@@ -501,10 +456,8 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
       </div>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">Role:</strong> Skeleton connectivity tables —
-      arrays of index pairs defining which keypoints to connect with lines.
-      13-keypoint for MoveNet (no head landmarks), 17-keypoint COCO standard
-      for YOLOv8.
+      Static skeleton connectivity mapping tables. 
+      These arrays define which keypoint indices are connected by lines to draw the skeletal structure (13 points for MoveNet missing head landmarks, 17 points for the standard COCO format used by YOLOv8).
     </div>
   </div>
 
@@ -527,10 +480,8 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
       </div>
     </div>
     <div style="font-size:0.82em;color:#718096;line-height:1.6;">
-      <strong style="color:#4a5568;">main.h:</strong> Global typedefs, peripheral
-      handle declarations, extern function prototypes used across all C files. &nbsp;|&nbsp;
-      <strong style="color:#4a5568;">utils.h:</strong> Shared utility macros and
-      inline helper functions (timing, debug, buffer alignment).
+      Global dependencies. <code>main.h</code> centralizes global typedefs, peripheral handle declarations, and external function prototypes. 
+      </code>utils.h</code> provides lightweight, inline helper macros for hardware timing, debug logging, and memory buffer alignment.
     </div>
   </div>
 
@@ -564,10 +515,8 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
 </div>
 
 <p style="color:#4a5568;font-size:0.93em;line-height:1.9;margin-bottom:20px;">
-  This group contains all Python files that run on the host PC.
-  They are organised by sub-folder, each responsible for a distinct
-  phase of the pipeline. The files are grouped below by their functional role,
-  from orchestration down to the individual processing steps.
+  This module contains the Python infrastructure executed on the host PC. 
+  Organized by functional role, these scripts handle the entire lifecycle: from dataset parsing and neural network quantization to automated code generation and headless flashing of the STM32 target.
 </p>
 
 <!-- Subfolder sections -->
@@ -576,7 +525,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
 <div style="background:#f0f7ff;border:1px solid #4299e1;border-radius:8px;
             padding:16px 20px;margin-bottom:12px;">
   <div style="font-weight:700;color:#2b6cb0;margin-bottom:10px;font-size:0.95em;">
-    &#9654; Orchestration layer
+    &#9654; Orchestration Layer
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
 
@@ -591,7 +540,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Entry point. Hydra <code>@main</code>. Reads YAML, dispatches to operation mode.
+        The primary entry point. Utilizing the Hydra configuration framework (<code>@main</code>), it parses the user's YAML configuration and dispatches execution to the appropriate pipeline mode (quantization, evaluation, or deployment).
       </div>
     </div>
 
@@ -606,7 +555,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Validates every field of <code>user_config.yaml</code>. Fail-fast design.
+        The strict validation engine. It enforces a fail-fast design by thoroughly validating every field and dependency within <code>user_config.yaml</code> before any processing begins.
       </div>
     </div>
 
@@ -621,7 +570,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Deployment orchestrator. Calls gen_h_file → common_deploy → CubeIDE.
+        The high-level deployment orchestrator. It manages the build sequence: triggering C header generation, invoking the ST Edge AI tools, and coordinating the headless build process via STM32CubeIDE.
       </div>
     </div>
 
@@ -636,7 +585,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Invokes ST Edge AI Core CLI, CubeIDE headless, SigningTool, CubeProgrammer.
+        The external tool interface. It handles direct command-line invocations for the ST Edge AI Core CLI, the STM32CubeIDE headless builder, the ST Signing Tool, and STM32CubeProgrammer for automated board flashing.
       </div>
     </div>
 
@@ -662,8 +611,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Reads TFLite tensor shapes → writes <code>app_config.h</code>. The only
-        file where Python directly controls C behaviour.
+        The critical configuration generator. It dynamically reads tensor shapes and model parameters from the input model (e.g., TFLite) and writes <code>app_config.h</code>. This is the primary mechanism by which the Python pipeline dictates the C firmware's runtime behavior.
       </div>
     </div>
 
@@ -678,8 +626,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Patches the linker script to place weight binary at
-        <code>0x70380000</code> in OctoFlash.
+        Memory allocation utility. It programmatically patches the C project's linker script to ensure the generated model weight binary (<code>model_weights.bin</code>) is correctly placed at <code>0x70380000</code> in the target's Octo-SPI Flash memory.
       </div>
     </div>
 
@@ -695,8 +642,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Model loading utilities and ST Edge AI runner interface for
-        on-board evaluation via stedgeai_n6 target.
+        Model loading and hardware-in-the-loop interface. It provides utilities for loading quantized models and interfacing with the ST Edge AI runner for direct, on-board evaluation using the <code>stedgeai_n6</code> target mode.
       </div>
     </div>
 
@@ -722,7 +668,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        PTQ: float32 → INT8. TFLite path for .h5, ONNX path for .onnx.
+        The Post-Training Quantization (PTQ) engine. It converts floating-point models to INT8 precision, supporting both TFLite pipelines (for <code>.h5</code> models) and ONNX pipelines (for <code>.onnx</code> models).
       </div>
     </div>
 
@@ -737,7 +683,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Dataset loading + rescaling + single-image preprocessing.
+        Dataset preparation pipeline. It handles image loading, rescaling operations, and the specific normalization steps required for single-image network inputs.
       </div>
     </div>
 
@@ -752,7 +698,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        COCO JSON parsing, image loading, keypoint normalisation.
+        The ground-truth ingestion module. Responsible for parsing complex COCO-format JSON annotations, batch-loading images, and normalizing keypoint coordinates for evaluation.
       </div>
     </div>
 
@@ -767,7 +713,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Heatmap argmax (MoveNet), YOLO NMS, hand/head decoders.
+        The host-side evaluation decoders. Mirrors the C firmware's decoding logic in Python, implementing heatmap argmax extraction for MoveNet and Non-Maximum Suppression (NMS) for YOLO models.
       </div>
     </div>
 
@@ -782,7 +728,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        Runs inference on test set. Supports host, stedgeai_host, stedgeai_n6.
+        The model inference runner. Executes predictions across the test dataset, supporting multiple execution contexts: local CPU (<code>host</code>), ST Edge AI host simulation (<code>stedgeai_host</code>), or hardware-in-the-loop on the NPU (<code>stedgeai_n6</code>).
       </div>
     </div>
 
@@ -797,7 +743,7 @@ $(document).ready(function(){initNavTree('part3_page.html',''); initResizable();
                   text-decoration:none;font-size:0.75em;font-weight:700;">View &rarr;</a>
       </div>
       <div style="font-size:0.8em;color:#718096;">
-        OKS (MoveNet), mAP@[0.5:0.95] (YOLOv8). Full COCO eval protocol.
+        The statistical evaluation engine. Calculates standardized accuracy metrics, including Object Keypoint Similarity (OKS) for MoveNet and mean Average Precision (mAP@[0.5:0.95]) for YOLOv8, adhering strictly to the COCO evaluation protocol.
       </div>
     </div>
 

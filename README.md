@@ -59,4 +59,33 @@ We deployed three neural network architectures on the **STM32N6570-DK** board eq
 
 ---
 
+## 🗂️ Repository Layout
+
+Doxygen outputs everything flat by default (hundreds of files in root). We post-process that output into tidy subfolders:
+
+| Folder | Contents |
+|--------|----------|
+| `css/` | stylesheets |
+| `js/`  | navtree, search, per-file JS indexes |
+| `images/ui/` | Doxygen UI icons (folders, arrows, sync) |
+| `images/authors/` | author photos |
+| `images/board/` | STM32N6570-DK board photos |
+| `graphs/` | call/include graph SVGs (+ `.map` / `.md5`) |
+| `search/` | untouched — Doxygen ships it as a subfolder |
+| *root* | HTML pages, `README.md` |
+
+## 🔁 Regenerating the Docs
+
+Doxygen overwrites its output directory on every run, so the reorganisation would be lost without a post-processing step. Run:
+
+```bash
+doxygen Doxyfile          # regenerate flat output in repo root
+python3 tools/reorg.py    # re-apply the subfolder layout + path rewrites
+git add -A && git commit -m "regen docs"
+```
+
+`tools/reorg.py` is idempotent — safe to run more than once. If you add new non-Doxygen images (e.g. more board photos, authors), extend the hard-coded sets at the top of that script.
+
+---
+
 *Documentation generated with Doxygen — source code available upon request.*
