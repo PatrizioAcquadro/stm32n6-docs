@@ -5,7 +5,7 @@
 
 ## Live Documentation
 
-**[→ Open the full documentation website](https://GiacomoColosio02.github.io/stm32n6-docs/)**
+**[→ Open the full documentation website](https://PatrizioAcquadro.github.io/stm32n6-docs/)**
 
 ---
 
