@@ -27,7 +27,7 @@ We deployed three neural network architectures on the **STM32N6570-DK** board eq
 
 | Section | Description |
 |---------|-------------|
-| **Part 1 — Narrative** | 6 chapters from edge computing theory to final results |
+| **Part 1 — Tutorial** | 6 chapters from edge computing theory to final results |
 | **Chapter 1** | Introduction to Edge AI and quantization |
 | **Chapter 2** | STM32N6570-DK hardware and Neural-ART NPU architecture |
 | **Chapter 3** | Toolchain: ST Model Zoo → ST Edge AI Core → STM32CubeIDE |
